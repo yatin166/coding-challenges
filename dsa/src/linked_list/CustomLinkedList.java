@@ -59,6 +59,22 @@ public class CustomLinkedList {
         tempNode.next = newNode;
     }
 
+    // Insert using recursion
+    public void insertAtIndexUsingRecursion(int index, int val) {
+        head = recursiveInsertion(index, val, head);
+    }
+
+    private Node recursiveInsertion(int index, int val, Node currentNode) {
+        if (index == 0) {
+            Node newNode = new Node(val, currentNode);
+            size += 1;
+            return newNode;
+        }
+
+        currentNode.next = recursiveInsertion(index - 1, val, currentNode.next);
+        return currentNode;
+    }
+
     public int deleteFirst() {
         int currentSize = size;
         if (head == null) {
