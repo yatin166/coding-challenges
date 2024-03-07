@@ -18,6 +18,7 @@ public class CustomLinkedListDS {
         linkedList.insertAtIndex(2, 3);
         linkedList.insertAtIndex(3, 4);
         linkedList.insertAtIndexUsingRecursion(2, 100);
+
         linkedList.display();
     }
 }

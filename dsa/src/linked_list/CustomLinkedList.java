@@ -148,6 +148,19 @@ public class CustomLinkedList {
         }
     }
 
+    public void reverse(Node node) {
+        if (node == tail) {
+            head = tail;
+            return;
+        }
+
+        reverse(node.next);
+        tail.next = head;
+        tail = node;
+        tail.next = null;
+
+    }
+
     class Node {
         private int val;
         private Node next;
