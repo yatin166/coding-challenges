@@ -39,4 +39,19 @@ public class ListNode {
         ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, node4)));
         return head;
     }
+
+    public static ListNode getSimpleList(int len) {
+        if (len == -1) {
+            return new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+        }
+
+        ListNode emptyNode = new ListNode();
+        ListNode tempNode = emptyNode;
+        for (int i = 1; i <= len; i++) {
+            tempNode.next = new ListNode(i);
+            tempNode = tempNode.next;
+        }
+
+        return emptyNode.next;
+    }
 }
