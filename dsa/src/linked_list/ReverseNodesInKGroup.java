@@ -85,7 +85,7 @@ public class ReverseNodesInKGroup {
 
     public static void main(String[] args) {
         ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
-        ListNode newHead = reverseInKGroup(head, 3);
+        ListNode newHead = reverseInKGroup(head, 2);
         newHead.display(newHead);
     }
 }
