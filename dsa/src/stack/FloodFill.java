@@ -1,7 +1,5 @@
 package stack;
 
-import java.util.Arrays;
-
 public class FloodFill {
 
     private static void floodFillUsingRecursion(int[][] image, int sr, int sc, int color, int startingColor) {
