@@ -16,6 +16,9 @@ public class TreeNode {
         this.right = right;
     }
 
+    public void prettyDisplay(TreeNode node) {
+        prettyDisplay(node, 0);
+    }
 
     public static void prettyDisplay(TreeNode node, int level) {
         if (node == null) {
