@@ -41,6 +41,6 @@ public class SerializeAndDeserializeBinaryTree {
         System.out.println(sb.toString());
         System.out.println();
         TreeNode deserialize = deserialize(sb);
-        deserialize.prettyDisplay(deserialize);
+        deserialize.printTree();
     }
 }

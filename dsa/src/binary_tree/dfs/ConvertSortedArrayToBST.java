@@ -1,6 +1,5 @@
 package binary_tree.dfs;
 
-import binary_tree.CustomBinaryTreeImplementation;
 
 public class ConvertSortedArrayToBST {
 
@@ -35,8 +34,9 @@ public class ConvertSortedArrayToBST {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[] {-10, -3, 0, 5, 9};
+        //int[] arr = new int[] {-10, -3, 0, 5, 9};
+        int[] arr = new int[] {1,2,3,4,5,6,8,9,18};
         populate(arr, 0, arr.length);
-        TreeNode.prettyDisplay(root, 0);
+        root.printTree();
     }
 }

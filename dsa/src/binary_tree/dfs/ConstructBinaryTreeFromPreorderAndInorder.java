@@ -26,6 +26,6 @@ public class ConstructBinaryTreeFromPreorderAndInorder {
         int[] preorder = {3,9,20,15,7};
         int[] inorder = {9,3,15,20,7};
         TreeNode tree = buildTree(preorder, inorder);
-        tree.prettyDisplay(tree);
+        tree.prettyDisplay();
     }
 }
