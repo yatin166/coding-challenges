@@ -9,39 +9,13 @@ import java.util.Queue;
 
 public class PrintBinaryTree {
 
-    private static int heightOfTree(TreeNode root, int level) {
-        if (root == null) {
-            return level;
-        }
-
-        int leftHeight = heightOfTree(root.left, level + 1);
-        int rightHeight = heightOfTree(root.right, level + 1);
-
-        return Math.max(leftHeight, rightHeight);
-    }
-
-    private static List<List<String>> getListStructure(TreeNode root, int height) {
-
-        List<List<String>> ans = new ArrayList<>();
-        int rows = height + 1;
-        int cols = (int) Math.pow(2, rows) - 1;
-        for (int i = 0; i < rows; i++) {
-            List<String> list = new ArrayList<>();
-            for (int j = 0; j < cols; j++) {
-                list.add("");
-            }
-            ans.add(list);
-        }
-        return ans;
-    }
-
     private static List<List<String>> printBinaryTree(TreeNode root) {
         if (root == null) {
             return List.of(List.of(""));
         }
 
         int height = heightOfTree(root, 0) - 1;
-        List<List<String>> list = getListStructure(root, height);
+        List<List<String>> list = getListStructure(height);
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
@@ -80,6 +54,32 @@ public class PrintBinaryTree {
         return list;
     }
 
+    private static int heightOfTree(TreeNode root, int level) {
+        if (root == null) {
+            return level;
+        }
+
+        int leftHeight = heightOfTree(root.left, level + 1);
+        int rightHeight = heightOfTree(root.right, level + 1);
+
+        return Math.max(leftHeight, rightHeight);
+    }
+
+    private static List<List<String>> getListStructure(int height) {
+
+        List<List<String>> ans = new ArrayList<>();
+        int rows = height + 1;
+        int cols = (int) Math.pow(2, rows) - 1;
+        for (int i = 0; i < rows; i++) {
+            List<String> list = new ArrayList<>();
+            for (int j = 0; j < cols; j++) {
+                list.add("-");
+            }
+            ans.add(list);
+        }
+        return ans;
+    }
+
     private static void constructTreeStructureInList(TreeNode node, List<List<String>> list, int parentRow, int parentCol, int heightOfTree) {
         if (node == null) {
             return;
@@ -101,7 +101,7 @@ public class PrintBinaryTree {
 
     private static void printTree(TreeNode root) {
         int height = heightOfTree(root, 0) - 1;
-        List<List<String>> list = getListStructure(root, height);
+        List<List<String>> list = getListStructure(height);
         int row = 0;
         int col = list.get(0).size() / 2;
         list.get(row).set(col, String.valueOf(root.val));
