@@ -59,7 +59,7 @@ public class TreeNode {
         for (int i = 0; i < rows; i++) {
             List<String> list = new ArrayList<>();
             for (int j = 0; j < cols; j++) {
-                list.add("*");
+                list.add(".");
             }
             ans.add(list);
         }
