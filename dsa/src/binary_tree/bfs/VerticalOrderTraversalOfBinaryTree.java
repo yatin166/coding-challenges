@@ -4,7 +4,6 @@ import java.util.AbstractMap;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
@@ -28,25 +27,28 @@ public class VerticalOrderTraversalOfBinaryTree {
         int max = 0;
 
         while (!queue.isEmpty()) {
-            Map.Entry<TreeNode, Integer> removed = queue.poll();
-            TreeNode node = removed.getKey();
-            col = removed.getValue();
+            int queueSize = queue.size();
+            for (int i = 0; i < queueSize; i++) {
+                Map.Entry<TreeNode, Integer> removed = queue.poll();
+                TreeNode node = removed.getKey();
+                col = removed.getValue();
 
-            if (node != null) {
-                if (!map.containsKey(col)) {
-                    map.put(col, new ArrayList<>());
-                }
+                if (node != null) {
+                    if (!map.containsKey(col)) {
+                        map.put(col, new ArrayList<>());
+                    }
 
-                map.get(col).add(node.val);
+                    map.get(col).add(node.val);
 
-                min = Math.min(min, col);
-                max = Math.max(max, col);
+                    min = Math.min(min, col);
+                    max = Math.max(max, col);
 
-                if (node.left != null) {
-                    queue.offer(new AbstractMap.SimpleEntry<>(node.left, col - 1));
-                }
-                if (node.right != null) {
-                    queue.offer(new AbstractMap.SimpleEntry<>(node.right, col + 1));
+                    if (node.left != null) {
+                        queue.offer(new AbstractMap.SimpleEntry<>(node.left, col - 1));
+                    }
+                    if (node.right != null) {
+                        queue.offer(new AbstractMap.SimpleEntry<>(node.right, col + 1));
+                    }
                 }
             }
         }
